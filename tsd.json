@@ -19,6 +19,9 @@
     },
     "express-serve-static-core/express-serve-static-core.d.ts": {
       "commit": "067edc80b9b70a1a4f342a53e7dc1dd00708d3fd"
+    },
+    "mongoose/mongoose.d.ts": {
+      "commit": "067edc80b9b70a1a4f342a53e7dc1dd00708d3fd"
     }
   }
 }
