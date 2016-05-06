@@ -4,8 +4,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     app     = express();
     
-    
-    
 var db = "mongodb://localhost/course_library";
 
 mongoose.connect(db,function(req,res){
@@ -15,6 +13,7 @@ mongoose.connect(db,function(req,res){
 var PORT = process.env.PORT || 9000;
 app.use(express.static(__dirname + ('/public')));
 app.use(express.static(__dirname+('/node_modules/bootstrap/dist')));
+app.use(express.static(__dirname+('/node_modules/jquery/dist')));
 
 app.set('view engine','ejs');
 
