@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 
 var AuthorSchema = new Schema({
     name:String,
+    image:String,
     lastname:String,
     biography:String,
     books:[

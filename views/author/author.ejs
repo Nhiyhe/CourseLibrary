@@ -1,0 +1,35 @@
+<%  include ../partials/header %>
+
+<div class="row">
+<div class="col-md-3">
+<h3 class="text-center"><%= author.name %> <%= author.lastname%></h3>
+<img src="<%= author.image%>" alt="<%= author.name%>" title="<%= author.name%>" class="img-circle" />
+</div>
+
+<div class="col-md-8">
+<h3>Biography</h3>
+<p><%= author.biography%></p>
+
+<p><a href="/author/<%= author._id %>/book/new" class="btn btn-primary">Add New Book</a></p>
+
+
+</div>
+</div>
+
+<% if(author.books.length > 0){%>
+
+<div class="row">
+  <h2 class="text-center"> Course<%if(author.books.length > 1){%>s 
+  
+  <% }%> by <%= author.name %> <%= author.lastname %></h2>
+  <% author.books.forEach(function(book){ %>
+   <div id="authorBooks">
+   <h5><%= book.title%></h5>
+   <p><%= book.level%> <%= book.code%>  <%= book.published.toString("YYYY-MM-DD") %></p>
+   </div>
+  <% }) %>
+</div>
+
+<% } %>
+
+<%  include ../partials/footer %>

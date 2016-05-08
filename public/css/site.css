@@ -1,8 +1,42 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Raleway,'Titillium Web', Arial, Helvetica, sans-serif;
+}
+h2{
+    font-family: Quicksand,'Gotham SSm A','Gotham SSm B',sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    color: #000;
+    margin: 0 0 15px;
+}
+h3{
+    font-size: 2.5em;
+}
+#authorBooks {
+    margin-bottom:1.5em;
 }
 
+#authorBooks h5{
+    color: #2c3e50;
+    font-size: 1.5em;
+}
 
+#authorBooks p{
+    color: gray;
+}
+
+img{
+    height: 250px;
+    widows: 300px;
+}
+
+.blue{
+    background-color: lightblue;
+}
+div h4{
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
 .navbar-default{
     background-color: #2c3e50;
 }

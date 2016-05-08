@@ -6,9 +6,17 @@ var Schema = mongoose.Schema;
 
 var BookSchema = new Schema({
     title:String,
+    image:String,
     description:String,
     code:String,
     level:String,
+    author:{
+        id:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Author'
+        },
+        name:String
+    },
     published:{
         type:Date,
         default:Date.now()

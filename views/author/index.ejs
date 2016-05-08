@@ -1,0 +1,15 @@
+<%  include ../partials/header %>
+<h2>Authors</h2>
+
+<% authors.forEach(function(author){ %>
+
+<div class="col-md-3">
+<a href="/author/<%= author._id %>"><div class="">
+<p><img src="<%= author.image %>" class="thumbnail" /></p>
+<h4> <%= author.name %> <%= author.lastname %></h4>
+</div>
+</a>
+</div>
+
+<% })%>
+<%  include ../partials/footer %>
