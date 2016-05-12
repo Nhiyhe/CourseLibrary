@@ -24,8 +24,8 @@
   <% }%> by <%= author.name %> <%= author.lastname %></h2>
   <% author.books.forEach(function(book){ %>
    <div id="authorBooks">
-   <h5><%= book.title%></h5>
-   <p><%= book.level%> <%= book.code%>  <%= book.published.toString("YYYY-MM-DD") %></p>
+   <h5><a href="/book/<%= book._id%> "><%= book.title%></a></h5>
+   <p><%= book.level%> <%= book.code%>  <%= moment(book.published).format("YYYY-MM-DD") %></p>
    </div>
   <% }) %>
 </div>

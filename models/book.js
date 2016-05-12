@@ -17,6 +17,13 @@ var BookSchema = new Schema({
         },
         name:String
     },
+    
+    comments:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Comment"
+        }
+    ],
     published:{
         type:Date,
         default:Date.now()

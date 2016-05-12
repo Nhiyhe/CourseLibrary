@@ -1,0 +1,49 @@
+<%  include ../partials/header %>
+<h2>Details of <%= book.title %></h2>
+<div>
+    <div class="col-md-3">
+    <img src="<%= book.image%>" alt="<%= book.title%>" title="<%= book.title%>""/>
+    </div>
+    
+     <div class="col-md-9">
+     <p><%= book.description %></p>
+     <p><%= book.code %></p>
+     <p><%= book.level %></p>
+     <p><%= book.author.name %></p>
+     <p><%= moment(book.published).format('DD-MM-YYYY') %></p>
+     <p><a href="/books" class="btn btn-default">Go Back</a></p>
+     
+     <div class="well well-sm">
+     <a href="/book/<%= book._id%>/comment/new" class="btn btn-sm btn-info">Add Comment</a>
+     </div>
+        <% if(book.comments.length > 0){ %> 
+            
+                <% book.comments.forEach(function(comment){ %>
+                <div class="well well-sm">
+                <div>
+                <p><%= comment.content %></p>
+                    <p class="pull-rigth"><em>Submitted by <%= comment.author.username %></em></p>
+                </div>
+                    <div>
+                 
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)){%>
+                    <a href="/book/<%= book._id %>/comment/<%= comment.id %>/edit " class="btn btn-warning btn-xs">Edit</a>
+                    <form id="form" action="/book/<%= book._id %>/comment/<%= comment.id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-xs">delete</button>
+                    </form>
+                    
+                    <% } %>
+                    
+                
+                    </div>
+                 </div>
+                <% })%>
+           
+        <% } %>
+    </div>
+    <div>
+    <div>
+</div>
+
+
+<%  include ../partials/footer %>

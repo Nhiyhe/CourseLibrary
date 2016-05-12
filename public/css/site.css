@@ -1,5 +1,6 @@
 body{
     font-family:Raleway,'Titillium Web', Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 h2{
     font-family: Quicksand,'Gotham SSm A','Gotham SSm B',sans-serif;
@@ -11,8 +12,16 @@ h2{
 h3{
     font-size: 2.5em;
 }
-#authorBooks {
+#authorBooks, #book {
     margin-bottom:1.5em;
+}
+
+#book {
+    margin-bottom:2.5em;
+}
+
+#form{
+    display: inline;
 }
 
 #authorBooks h5{

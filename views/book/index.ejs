@@ -3,8 +3,11 @@
 
 <% books.forEach(function(book){ %>
 <div class="col-md-3 col-sm-3">
-<img src="<%= book.image%>" class="thumbnail"/>
-<h4> <%= book.title%></h4>
+    <a href="/book/<%= book._id %>"><div id="book">
+    <img src="<%= book.image%>" class="thumbnail"/>
+    <h4> <%= book.title%></h4>
+    </div>
+    </a>
 </div>
 <% }) %>
 
