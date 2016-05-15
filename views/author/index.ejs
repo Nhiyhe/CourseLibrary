@@ -1,6 +1,13 @@
 <%  include ../partials/header %>
 <h2>Authors</h2>
-
+<% if(currentUser){ %>
+<div class="btn-toolbar">
+    <a href="/author/new" 
+    class="btn btn-primary">Add Author</a>
+</div>
+<% } %>
+<br>
+<div>
 <% authors.forEach(function(author){ %>
 
 <div class="col-md-3">
@@ -12,4 +19,5 @@
 </div>
 
 <% })%>
+</div>
 <%  include ../partials/footer %>

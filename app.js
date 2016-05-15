@@ -4,7 +4,7 @@ var express = require('express'),
     mongoose = require('mongoose'),   
     bodyParser = require('body-parser'),    
     User     = require('./models/user'),
-    toastr      = require('toastr'),
+    flash    = require('connect-flash'),
                  
     Comment     = require('./models/comment'),
     passport    = require('passport'),
@@ -35,6 +35,8 @@ var express = require('express'),
     app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(flash());
+    
 
     passport.use(new LocalStrategy(User.authenticate()));
 
@@ -47,8 +49,9 @@ var express = require('express'),
     app.use(function(req,res,next){
      
     res.locals.currentUser = req.user;
-    res.locals.toastr = toastr;
     res.locals.moment = require('moment');
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
     next();
     });
 

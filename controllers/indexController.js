@@ -18,23 +18,23 @@ module.exports = function(app){
             res.render('index');
         });
 
-        app.get('/register',function(req,res){
-        res.render('user/register'); 
-        });
 
         app.post('/register', function(req,res){
             User.register(new User({username:req.body.username, hobby:req.body.hobby}), req.body.password,function(err,user){
                 if(err){
-                    console.log(err);
-                    return res.redirect('/login');
+                    req.flash('error',err.message);
+                    return res.redirect('back');
                 }
                 passport.authenticate('local')(req,res, function(){
-                    
-                    
-                    
+                    req.flash('success','You are successfully register ' + user.username);
                     res.render('user/secret');
                 })
             })
+        });
+        
+        
+        app.get('/register',function(req,res){
+        res.render('user/register'); 
         });
 
         app.get('/signin', function(req,res){
@@ -46,28 +46,30 @@ module.exports = function(app){
         });
 
         app.post('/signin', passport.authenticate("local",{
-            failureRedirect:'/',
-            successRedirect:'/user/secret'
+            failureRedirect:'/signin',
+            successRedirect:'/user/secret',
+            failureFlash:'Invalid Username or Password',
+            successFlash:'Welcome to my Application.'
             
         }),function(req,res){
-            console.log(req.url);
-            console.log(req.originalUrl);
+            
         });
 
 
         app.get('/logout', function(req,res){
             req.logout();
+            req.flash('success','You are successfully logout');
             res.redirect('/');
         });
         
       
         
-        function isLoggedIn(req,res,next) {
-             console.log(req.url);
+        function isLoggedIn(req,res,next) {           
         if(req.isAuthenticated()){
             return next();
         }
-        res.redirect('/');
+        req.flash('error','You need to login to do this');
+        res.redirect('back');
         };
 
         

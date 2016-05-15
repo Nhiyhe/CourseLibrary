@@ -1,0 +1,36 @@
+<%  include ../partials/header %>
+<h2 class="text-center">Add New Author</h2>
+
+ <div>
+       <form action="/author/new" method="POST">
+        <div class="form-group">
+        <label for="nameInput">Name</label>  
+        <input type="text" class="form-control" name="author[name]" value="" id="nameInput" placeholder="name" />
+        </div>
+        
+         <div class="form-group">
+        <label for="imageInput">Image</label>  
+        <input type="text" class="form-control" name="author[image]" value="" id="imageInput" placeholder="image"/>
+        </div>
+        
+        <div class="form-group">
+        <label for="lastnameInput">LastName</label>  
+        <input class="form-control" id="lastnameInput" name="author[lastname]" placeholder="lastname"/>
+        </div>
+        
+         <div class="form-group">
+        <label for="bioInput">Biography</label>  
+        <textarea class="form-control" name="author[biography]" value="" id="bioInput" placeholder="biography" ></textarea>
+        </div>
+     
+        
+        <div>
+        <button class="btn btn-primary">Submit</button>
+        <a href="/authors" class="btn btn-default">Go Back</a>
+        
+        </div>
+        
+       </form>
+    </div>
+
+<%  include ../partials/footer %>
